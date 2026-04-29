@@ -16,7 +16,7 @@ jobs:
                 distribution: temurin
                 cache: maven
             - name: Compilation
-              run: ./mvwn compile
+              run: ./mvnw compile
     JobTest:
         needs: JobCompile
         runs-on: ubuntu-latest
