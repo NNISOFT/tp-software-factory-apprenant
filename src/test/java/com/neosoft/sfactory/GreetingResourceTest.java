@@ -33,7 +33,7 @@ class GreetingResourceTest {
           .statusCode(200)
           // On vérifie que la réponse JSON contient les bonnes valeurs
           .body("nom", is("Dupont"))
-          .body("prenom", is("Jeanz"));
+          .body("prenom", is("Jean"));
     }
 
     @Test
