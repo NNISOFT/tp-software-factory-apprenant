@@ -5,7 +5,12 @@ on:
     branches: [ main ]
 
 jobs:
+    job0:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v6
     job1:
+        needs: job0
         runs-on: ubuntu-latest
         steps:
             - name: Set up JDK 25
