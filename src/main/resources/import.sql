@@ -1,0 +1,10 @@
+INSERT INTO Utilisateur (id, nom, prenom) VALUES (nextval('Utilisateur_SEQ'), 'Martin', 'Lucas');
+INSERT INTO Utilisateur (id, nom, prenom) VALUES (nextval('Utilisateur_SEQ'), 'Bernard', 'Léa');
+INSERT INTO Utilisateur (id, nom, prenom) VALUES (nextval('Utilisateur_SEQ'), 'Thomas', 'Hugo');
+INSERT INTO Utilisateur (id, nom, prenom) VALUES (nextval('Utilisateur_SEQ'), 'Petit', 'Emma');
+INSERT INTO Utilisateur (id, nom, prenom) VALUES (nextval('Utilisateur_SEQ'), 'Robert', 'Nathan');
+INSERT INTO Utilisateur (id, nom, prenom) VALUES (nextval('Utilisateur_SEQ'), 'Richard', 'Chloé');
+INSERT INTO Utilisateur (id, nom, prenom) VALUES (nextval('Utilisateur_SEQ'), 'Durand', 'Enzo');
+INSERT INTO Utilisateur (id, nom, prenom) VALUES (nextval('Utilisateur_SEQ'), 'Dubois', 'Manon');
+INSERT INTO Utilisateur (id, nom, prenom) VALUES (nextval('Utilisateur_SEQ'), 'Moreau', 'Louis');
+INSERT INTO Utilisateur (id, nom, prenom) VALUES (nextval('Utilisateur_SEQ'), 'Laurent', 'Jade');
