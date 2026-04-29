@@ -34,3 +34,24 @@ jobs:
               run: chmod +x ./mvnw
             - name: Test
               run: ./mvnw test
+    JobVerify:
+        needs: JobCompile
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v6
+            - name: Set up JDK 25
+              uses: actions/setup-java@v5
+              with:
+                java-version: 25
+                distribution: temurin
+                cache: maven
+            - name: Make mvnw executable
+              run: chmod +x ./mvnw
+            - name: Verify
+              run: ./mvnw verify
+            - name: Upload
+              uses: actions/upload-artifact@v7
+              with:
+                name: jacoco.xml
+                path: ./target/site/jacoco
+                archive: false
