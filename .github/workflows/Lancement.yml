@@ -53,5 +53,5 @@ jobs:
               uses: actions/upload-artifact@v7
               with:
                 name: jacoco.xml
-                path: ./target/site/jacoco
+                path: ./target/site/jacoco/jacoco.xml
                 archive: false
