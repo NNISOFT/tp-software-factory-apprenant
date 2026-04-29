@@ -8,14 +8,14 @@ jobs:
     JobCompileTest:
         runs-on: ubuntu-latest
         steps:
+            - uses: actions/checkout@v6
+            - name: Compilation
+              run: mvwn compile
+            - name: Test
+              run: mvnw test
             - name: Set up JDK 25
               uses: actions/setup-java@v5
               with:
                 java-version: 25
                 distribution: temurin
                 cache: maven
-            - uses: actions/checkout@v6
-            - name: Compilation
-              run: mvwn compile
-            - name: Test
-              run: mvnw test
