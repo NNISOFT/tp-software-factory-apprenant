@@ -112,7 +112,7 @@ jobs:
               uses: actions/download-artifact@v8
               with:
                 name: Classes.zip
-                path: ./
+                path: /target/classes
             - name: Etape 2b - Download Artifact
               uses: actions/download-artifact@v8
               with:
@@ -130,7 +130,7 @@ jobs:
                 args: >
                   -Dsonar.organization=NNISOFT
                   -Dsonar.projectKey=nnisoft
-                  -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
+                  -Dsonar.coverage.jacoco.xmlReportPaths=jacoco.xml
                   -Dsonar.sources=/target/classes
               env:
                 SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
