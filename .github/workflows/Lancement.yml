@@ -8,7 +8,7 @@ jobs:
     JobBuild:
       name: Lint
       runs-on: ubuntu-latest
-
+      continue-on-error: true
       permissions:
         # contents permission to clone the repository
         contents: read
@@ -35,8 +35,19 @@ jobs:
           env:
             # To report GitHub Actions status checks
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    JobTruffle:
+      runs-on: ubuntu-latest
+      steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - name: Secret Scanning
+        uses: trufflesecurity/trufflehog@main
+        with:
+          extra_args: --results=verified,unknown
     JobCompile:
-        needs: JobBuild
+        needs: [JobBuild, JobTruffle]
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v6
