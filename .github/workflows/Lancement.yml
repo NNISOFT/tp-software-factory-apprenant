@@ -112,7 +112,7 @@ jobs:
               uses: actions/download-artifact@v8
               with:
                 name: Classes.zip
-                path: /target/classes
+                path: ./target/classes
             - name: Etape 2b - Download Artifact
               uses: actions/download-artifact@v8
               with:
