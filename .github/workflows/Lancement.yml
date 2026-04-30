@@ -12,6 +12,16 @@ env:
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
+    PartageJob:
+      name: Test
+      runs-on: ubuntu-latest
+      steps:
+        - name: Test
+          id: test
+          uses: Luctum/test-action@main
+          with:
+            who-to-greet: "Hello"
+
     JobBuild:
       name: Lint
       runs-on: ubuntu-latest
