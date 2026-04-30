@@ -113,6 +113,11 @@ jobs:
               with:
                 name: Classes.zip
                 path: ./
+            - name: Etape 2b - Download Artifact
+              uses: actions/download-artifact@v8
+              with:
+                name: jacoco.xml
+                path: ./
             - name: Etape 3 - Affichage final
               run: ls -lah
             - uses: actions/checkout@v6
@@ -124,7 +129,7 @@ jobs:
               with:
                 args: >
                   -Dsonar.organization=NNISOFT
-                  -Dsonar.projectKey=7b7fc0c7eefd9b8dde27afbc0fc01524a3b15f58
+                  -Dsonar.projectKey=nnisoft
                   -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
                   -Dsonar.sources=/target/classes
               env:
