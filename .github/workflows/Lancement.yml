@@ -4,9 +4,12 @@ on:
   push:
     branches: [ master ]
 
+#env:
+#  - name: REGISTRY
+#    value: ghcr.io
 env:
-  - name: REGISTRY
-    value: ghcr.io
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
 
 jobs:
     JobBuild:
