@@ -195,3 +195,14 @@ jobs:
               push: true
               tags: ghcr.io/nnisoft/tp-software-factory-apprenant:latest
               labels: ${{ steps.meta.outputs.labels }}    
+    Jobdeploy-prod:
+      name: Deploy to Production
+      needs: JobPublish
+      runs-on: ubuntu-latest
+      environment: prod
+      container: ghcr.io/railwayapp/cli:latest
+      env:
+        SVC_ID: tp-software-factory-nicolas
+        RAILWAY_TOKEN: ${{ secrets.RAILWAY_DEPLOY }}
+      steps:
+        - run: railway redeploy --service=${{ env.SVC_ID }} --yes
