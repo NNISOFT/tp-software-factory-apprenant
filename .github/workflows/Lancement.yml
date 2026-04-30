@@ -104,12 +104,13 @@ jobs:
                 path: ./target/classes
     JobSonar:
         needs: JobVerify
+        permissions: write-all
         runs-on: ubuntu-latest
         steps:
             - name: Etape 1 - Affichage après création
               run: ls -lah
-            - name: Make mvnw executable
-              run: chmod +x ./
+            - name: Rajout droits
+              run: chmod +777 ./
             - name: Etape 2 - Download Artifact
               uses: actions/download-artifact@v8
               with:
