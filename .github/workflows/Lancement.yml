@@ -121,5 +121,11 @@ jobs:
                 fetch-depth: 0
             - name: SonarQube Scan
               uses: sonarsource/sonarcloud-github-action@master # Ex: v4.0.0, See the latest version at https://github.com/marketplace/actions/sonarcloud-scan
+              with:
+                args: >
+                  -Dsonar.organization=NNISOFT
+                  -Dsonar.projectKey=7b7fc0c7eefd9b8dde27afbc0fc01524a3b15f58
+                  -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
+                  -Dsonar.sources=/target/classes
               env:
                 SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
