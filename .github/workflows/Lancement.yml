@@ -106,6 +106,10 @@ jobs:
         needs: JobVerify
         runs-on: ubuntu-latest
         steps:
+            - uses: actions/checkout@v6
+              with:
+                # Disabling shallow clones is recommended for improving the relevancy of reporting
+                fetch-depth: 0
             - name: Etape 1 - Affichage après création
               run: ls -lah
             - name: Etape 2 - Download Artifact
@@ -120,10 +124,6 @@ jobs:
                 path: ./
             - name: Etape 3 - Affichage final
               run: ls -lah
-            - uses: actions/checkout@v6
-              with:
-                # Disabling shallow clones is recommended for improving the relevancy of reporting
-                fetch-depth: 0
             - name: SonarQube Scan
               uses: sonarsource/sonarcloud-github-action@master # Ex: v4.0.0, See the latest version at https://github.com/marketplace/actions/sonarcloud-scan
               with:
