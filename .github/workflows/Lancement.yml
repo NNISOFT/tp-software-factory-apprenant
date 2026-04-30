@@ -128,7 +128,7 @@ jobs:
               uses: sonarsource/sonarcloud-github-action@master # Ex: v4.0.0, See the latest version at https://github.com/marketplace/actions/sonarcloud-scan
               with:
                 args: >
-                  -Dsonar.organization=NNISOFT
+                  -Dsonar.organization=nnisoft
                   -Dsonar.projectKey=nnisoft
                   -Dsonar.coverage.jacoco.xmlReportPaths=jacoco.xml
                   -Dsonar.sources=./target/classes
