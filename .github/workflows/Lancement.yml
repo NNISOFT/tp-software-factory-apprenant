@@ -2,7 +2,7 @@ name: Lancer programme Java
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
     JobBuild:
@@ -131,6 +131,6 @@ jobs:
                   -Dsonar.organization=nnisoft
                   -Dsonar.projectKey=nnisoft
                   -Dsonar.coverage.jacoco.xmlReportPaths=jacoco.xml
-                  -Dsonar.sources=./target/classes
+                  -Dsonar.java.binaries=./target/classes
               env:
                 SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
