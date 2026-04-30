@@ -91,9 +91,35 @@ jobs:
               run: chmod +x ./mvnw
             - name: Verify
               run: ./mvnw verify
-            - name: Upload
+            - name: UploadJacoco
               uses: actions/upload-artifact@v7
               with:
                 name: jacoco.xml
                 path: ./target/site/jacoco/jacoco.xml
                 archive: false
+            - name: UploadClasses
+              uses: actions/upload-artifact@v7
+              with:
+                name: Classes.zip
+                path: ./target/classes
+    JobSonar:
+        needs: JobVerify
+        runs-on: ubuntu-latest
+        steps:
+            - name: Etape 1 - Affichage après création
+              run: ls -lah
+            - name: Etape 2 - Download Artifact
+              uses: actions/download-artifact@v8
+              with:
+                name: Classes.zip
+                path: ./
+            - name: Etape 3 - Affichage final
+              run: ls -lah
+            - uses: actions/checkout@v6
+              with:
+                # Disabling shallow clones is recommended for improving the relevancy of reporting
+                fetch-depth: 0
+            - name: SonarQube Scan
+              uses: sonarsource/sonarcloud-github-action@v4.0.0 # Ex: v4.0.0, See the latest version at https://github.com/marketplace/actions/sonarcloud-scan
+              env:
+                SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
