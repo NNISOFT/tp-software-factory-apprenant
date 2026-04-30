@@ -108,6 +108,8 @@ jobs:
         steps:
             - name: Etape 1 - Affichage après création
               run: ls -lah
+            - name: Make mvnw executable
+              run: chmod +x ./
             - name: Etape 2 - Download Artifact
               uses: actions/download-artifact@v8
               with:
