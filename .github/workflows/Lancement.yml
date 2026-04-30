@@ -158,8 +158,8 @@ jobs:
 
           - name: Make mvnw executable
             run: chmod +x ./mvnw
-          - name: Compilation
-            run: ./mvnw compile
+          - name: Verify
+            run: ./mvnw verify -B
               
           -
             name: Login to DockerHub
@@ -190,6 +190,3 @@ jobs:
               push: true
               tags: ghcr.io/nnisoft/tp-software-factory-apprenant:latest
               labels: ${{ steps.meta.outputs.labels }}    
-
-          - name: Build & Test
-            run: ./mvnw verify -B
